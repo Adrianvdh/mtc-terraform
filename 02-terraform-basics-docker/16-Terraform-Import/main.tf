@@ -21,21 +21,23 @@ resource "random_string" "random" {
 resource "docker_container" "nodered_container" {
   count = 1
   name  = join("-", ["nodered", random_string.random[count.index].result])
-  image = docker_image.nodered_image.latest
+  image = docker_image.nodered_image.image_id
   ports {
     internal = 1880
     # external = 1880
   }
 }
 
-resource "docker_container" "nodered" {
-  count = 1
-  image = "nodered/node-red"
-  name = "nodered-xxxx"
-}
+# Uncomment and run
+# terraform import docker_container.nodered_container2  $(docker inspect --format="{{ .ID }}" nodered-iiBt)
+# 
+# resource "docker_container" "nodered_container2" {
+#   name  = "nodered-iiBt"
+#   image = docker_image.nodered_image.image_id
+# }
 
 output "ip_address" {
-  value       = [for i in docker_container.nodered_container[*] : join(":", [i.ip_address], i.ports[*]["external"])]
+  value       = [for i in docker_container.nodered_container[*] : join(":", [i.network_data[0].ip_address], i.ports[*]["external"])]
   description = "The IP address of the container"
 }
 
