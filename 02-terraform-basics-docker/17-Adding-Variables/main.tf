@@ -19,7 +19,7 @@ variable "int_port" {
 
 variable "ext_port" {
   type    = number
-  default = 1880
+  # default = 1880
 }
 
 variable "container_count" {
@@ -37,7 +37,7 @@ resource "docker_image" "nodered_image" {
 
 resource "docker_container" "nodered_container" {
   name  = "nodered"
-  image = docker_image.nodered_image.latest
+  image = docker_image.nodered_image.image_id
   ports {
     internal = var.int_port
     external = var.ext_port
@@ -46,7 +46,7 @@ resource "docker_container" "nodered_container" {
 
 #Output the IP Address of the Container
 output "ip-address" {
-  value = docker_container.nodered_container.ip_address
+  value = docker_container.nodered_container.network_data[0].ip_address
 }
 
 output "container-name" {

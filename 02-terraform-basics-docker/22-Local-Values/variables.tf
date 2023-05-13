@@ -18,6 +18,11 @@ variable "int_port" {
   }
 }
 
+# variable "container_count" {
+#   type    = number
+#   default = 2
+# }
+
 locals {
   container_count = length(var.ext_port)
 }

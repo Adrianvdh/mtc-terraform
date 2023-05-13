@@ -30,14 +30,14 @@ resource "random_string" "random" {
 resource "docker_container" "nodered_container" {
   count = var.container_count
   name  = join("-", ["nodered", random_string.random[count.index].result])
-  image = docker_image.nodered_image.latest
+  image = docker_image.nodered_image.image_id
   ports {
     internal = var.int_port
     external = var.ext_port
   }
   volumes {
     container_path = "/data"
-    host_path      = "/home/ubuntu/environment/terraform-docker/noderedvol"
+    host_path      = "/Users/adrian/Development/DevOps-Courses/mtc-terraform/02-terraform-basics-docker/21-Docker-Volume-Local-Exec/noderedvol"
   }
 }
 
