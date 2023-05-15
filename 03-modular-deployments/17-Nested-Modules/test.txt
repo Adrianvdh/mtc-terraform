@@ -1,0 +1,4 @@
+grafana-prod-4dqp: 172.17.0.3:3000
+influxdb-prod-pni1: 172.17.0.4:8086
+grafana-prod-mtob: 172.17.0.5:3001
+nodered-prod-b16d: 172.17.0.6:1880

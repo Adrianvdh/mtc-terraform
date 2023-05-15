@@ -1,0 +1,1 @@
+$ docker inspect $(docker ps -a -q) | grep volume

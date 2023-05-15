@@ -4,6 +4,7 @@
 provider "registry.terraform.io/hashicorp/random" {
   version = "3.1.0"
   hashes = [
+    "h1:9cCiLO/Cqr6IUvMDSApCkQItooiYNatZpEXmcu0nnng=",
     "h1:BZMEPucF+pbu9gsPk0G0BHx7YP04+tKdq2MrRDF1EDM=",
     "zh:2bbb3339f0643b5daa07480ef4397bd23a79963cc364cdfbb4e86354cb7725bc",
     "zh:3cd456047805bf639fbf2c761b1848880ea703a054f76db51852008b11008626",
@@ -23,6 +24,7 @@ provider "registry.terraform.io/kreuzwerker/docker" {
   version = "2.15.0"
   hashes = [
     "h1:NEBNtKNukqr6qk5vWu8Xx/nHBVNNdlty0hrFG76K7AE=",
+    "h1:V4SqgWd0+DqHYadZ/27lh9MeVStxzQGUBW1W+C4MVP0=",
     "zh:0241e5c7b66c14aa54e367dfe380fbde8388d3254cbe8a70717c12f71897e82b",
     "zh:0f162f0a01ffe9eec32e78dfc2a5b05a373230c41f041439efa3f4b68903fdcb",
     "zh:1c222c1425fbb0367154bcb8e4d87b19d6eae133fbb341f73102fa3b300f34bf",
