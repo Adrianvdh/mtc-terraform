@@ -1,3 +1,11 @@
-variable "vpc_cidr" {}
-variable "public_cidrs" {}
-variable "private_cidrs" {}
+variable "vpc_cidr" {
+    type = string
+}
+
+variable "public_cidrs" {
+    type = list
+}
+
+variable "private_cidrs" {
+    
+}
