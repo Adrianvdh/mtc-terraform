@@ -10,4 +10,5 @@ module "networking" {
   max_subnets      = 20
   access_ip        = var.access_ip
   security_groups  = local.security_groups
+  db_subnet_group  = true
 }
