@@ -1,15 +1,3 @@
-locals {
-  vars = {
-    nodename    = "mtc-${random_id.mtc_node_id[count.index].dec}"
-    db_endpoint = var.db_endpoint
-    dbuser      = var.dbuser
-    dbpass      = var.dbpassword
-    dbname      = var.dbname
-
-  }
-}
-
-
 data "aws_ami" "server_ami" {
   most_recent = true
 

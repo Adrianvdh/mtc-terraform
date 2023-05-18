@@ -15,18 +15,18 @@ module "networking" {
   db_subnet_group  = "true"
 }
 
-# module "database" {
-#   source                 = "./database"
-#   db_engine_version      = "5.7.22"
-#   db_instance_class      = "db.t2.micro"
-#   dbname                 = var.dbname
-#   dbuser                 = var.dbuser
-#   dbpassword             = var.dbpassword
-#   db_identifier          = "mtc-db"
-#   skip_db_snapshot       = true
-#   db_subnet_group_name   = module.networking.db_subnet_group_name[0]
-#   vpc_security_group_ids = [module.networking.db_security_group]
-# }
+module "database" {
+  source                 = "./database"
+  db_engine_version      = "5.7.41"
+  db_instance_class      = "db.t2.micro"
+  dbname                 = var.dbname
+  dbuser                 = var.dbuser
+  dbpassword             = var.dbpassword
+  db_identifier          = "mtc-db"
+  skip_db_snapshot       = true
+  db_subnet_group_name   = module.networking.db_subnet_group_name[0]
+  vpc_security_group_ids = [module.networking.db_security_group]
+}
 
 module "loadbalancing" {
   source                  = "./loadbalancing"
@@ -50,6 +50,6 @@ module "compute" {
   instance_count  = 1
   instance_type   = "t3.micro"
   vol_size        = "20"
-  public_key_path = "/home/ubuntu/.ssh/mtckey.pub"
-  key_name        = "mtckey"
+  public_key_path = "/Users/adrian/.ssh/mtc-terraform_rsa.pub"
+  key_name        = "mtc-key"
 }

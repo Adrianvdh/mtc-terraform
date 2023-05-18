@@ -22,19 +22,19 @@ resource "aws_key_pair" "mtc_auth" {
   public_key = file(var.public_key_path)
 }
 
-data "template_file" "user-init" {
-  count    = var.instance_count
-  template = file("${path.module}/userdata.tpl")
+# data "template_file" "user-init" {
+#   count    = var.instance_count
+#   template = file("${path.module}/userdata.tpl")
 
-  vars = {
-    nodename    = "mtc-${random_id.pc_node_id[count.index].dec}"
-    db_endpoint = var.db_endpoint
-    dbuser      = var.dbuser
-    dbpass      = var.dbpassword
-    dbname      = var.dbname
+#   vars = {
+#     nodename    = "mtc-${random_id.pc_node_id[count.index].dec}"
+#     db_endpoint = var.db_endpoint
+#     dbuser      = var.dbuser
+#     dbpass      = var.dbpassword
+#     dbname      = var.dbname
 
-  }
-}
+#   }
+# }
 
 resource "aws_instance" "mtc_node" {
   count         = var.instance_count

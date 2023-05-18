@@ -1,10 +1,9 @@
 terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "derekops"
+  cloud {
+    organization = "Adrianvdh"
 
     workspaces {
-      name = "mtc-aws"
+      name = "mtc-dev"
     }
   }
 }
