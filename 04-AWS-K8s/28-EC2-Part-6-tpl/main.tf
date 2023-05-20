@@ -39,7 +39,7 @@ module "loadbalancing" {
   elb_unhealthy_threshold = 2
   elb_timeout             = 3
   elb_interval            = 30
-  listener_port           = 8000
+  listener_port           = 80  // From 8000
   listener_protocol       = "HTTP"
 }
 
@@ -57,4 +57,7 @@ module "compute" {
   dbpassword      = var.dbpassword
   db_endpoint     = module.database.db_endpoint
   user_data_path  = "${path.root}/userdata.tpl"
+  lb_target_group_arn = module.loadbalancing.lb_target_group_arn
+  lb_target_group_port = 8000
+
 }

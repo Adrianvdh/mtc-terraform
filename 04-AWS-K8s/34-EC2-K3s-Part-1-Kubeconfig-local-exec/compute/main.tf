@@ -52,7 +52,7 @@ resource "aws_instance" "mtc_node" {
     command = templatefile("${path.cwd}/scp_script.tpl",
       {
         nodeip   = self.public_ip
-        k3s_path = "${path.cwd}/../"
+        k3s_path = "${path.cwd}/"
         nodename = self.tags.Name
       }
     )

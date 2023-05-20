@@ -1,0 +1,1 @@
+> terraform output -json | jq '."instances"."value"'

@@ -17,7 +17,7 @@ module "networking" {
 
 module "database" {
   source                 = "./database"
-  db_engine_version      = "5.7.22"
+  db_engine_version      = "5.7.41"
   db_instance_class      = "db.t2.micro"
   dbname                 = var.dbname
   dbuser                 = var.dbuser
@@ -47,10 +47,10 @@ module "compute" {
   source              = "./compute"
   public_sg           = module.networking.public_sg
   public_subnets      = module.networking.public_subnets
-  instance_count      = 1
+  instance_count      = 2
   instance_type       = "t3.micro"
   vol_size            = "20"
-  public_key_path     = "/home/ubuntu/.ssh/mtckey.pub"
+  public_key_path     = "/Users/adrian/.ssh/mtc-terraform_rsa.pub"
   key_name            = "mtckey"
   dbname              = var.dbname
   dbuser              = var.dbuser

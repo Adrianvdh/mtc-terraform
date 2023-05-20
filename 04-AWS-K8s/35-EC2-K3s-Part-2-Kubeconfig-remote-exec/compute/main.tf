@@ -48,12 +48,13 @@ resource "aws_instance" "mtc_node" {
   root_block_device {
     volume_size = var.vol_size
   }
+  # Replaces scp_script "sleep 60" command
   provisioner "remote-exec" {
     connection {
       type        = "ssh"
       user        = "ubuntu"
       host        = self.public_ip
-      private_key = file("/home/ubuntu/.ssh/mtckey")
+      private_key = file("/Users/adrian/.ssh/mtc-terraform_rsa")
     }
     script = "${path.root}/delay.sh"
   }
