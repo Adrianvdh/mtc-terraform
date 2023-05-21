@@ -73,6 +73,7 @@ resource "aws_instance" "mtc_node" {
   }
 }
 
+# This might be the issue to the 503 error
 resource "aws_lb_target_group_attachment" "mtc_tg_attach" {
   count            = var.instance_count
   target_group_arn = var.lb_target_group_arn

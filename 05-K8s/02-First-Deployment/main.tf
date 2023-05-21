@@ -26,21 +26,21 @@ resource "kubernetes_deployment" "iotdep" {
         container {
           image = "nodered/node-red:latest"
           name  = "nodered-container"
-          volume_mount {
-            name       = "nodered-vol"
-            mount_path = "/data"
-          }
+          # volume_mount {
+          #   name       = "nodered-vol"
+          #   mount_path = "/data"
+          # }
           port {
             container_port = 1880
             host_port      = 8000
           }
         }
-        volume {
-          name = "nodered-vol"
-          empty_dir {
-            medium = ""
-          }
-        }
+        # volume {
+        #   name = "nodered-vol"
+        #   empty_dir {
+        #     medium = ""
+        #   }
+        # }
       }
     }
   }
